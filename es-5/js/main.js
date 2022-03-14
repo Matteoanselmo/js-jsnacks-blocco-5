@@ -12,44 +12,34 @@ const persons = [
       nome : 'Riccardo',
       cognome : 'Petricca',
       anni : 28,
-      guida : '',
    },
    {
       nome : 'Matteo',
       cognome : 'Anselmo',
       anni : 25,
-      guida : '',
    },
    {
       nome : 'Pipino',
       cognome : 'Il breve',
       anni : 1254,
-      guida : '',
    },
    {
       nome : 'Leonardo',
       cognome : 'Mazzanti',
       anni : 7,
-      guida : '',
    },
    {
       nome : 'Venere',
       cognome : 'Mazzanti',
       anni : 3,
-      guida : '',
-   },
+   }
 ];
 
 console.table(persons);
 
-const personsCanDrive = persons.filter((element) => {
-   if(element.anni >= 18){
-      element.guida = 'può guidare';
-
-   }else{
-      element.guida = 'NON può guidare';
-   }
-   return true;
+const personsCanDrive = persons.map(element => {
+   let drivingAgeStatement = (element.anni >= 18) ? 'può guidare'  : 'non può guidare' ;
+   return `${element.nome}, ${element.cognome} , ${drivingAgeStatement}`;
 })
 
 console.table(personsCanDrive);
